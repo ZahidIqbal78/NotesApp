@@ -1,0 +1,47 @@
+.vscode
+
+NotesAPP.API/.vscode
+NotesAPP.API/bin
+NotesAPP.API/obj
+
+# Compiled output
+NotesApp.Web/dist
+NotesApp.Web/tmp
+NotesApp.Web/out-tsc
+NotesApp.Web/bazel-out
+
+# Node
+NotesAPP.Web/node_modules
+NotesAPP.Web/npm-debug.log
+NotesAPP.Web/yarn-error.log
+
+# IDEs and editors
+.idea/
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# Visual Studio Code
+NotesAPP.Web/.vscode/*
+# .vscode/settings.json
+# .vscode/tasks.json
+# .vscode/launch.json
+# .vscode/extensions.json
+# .history/*
+
+# Miscellaneous
+NotesAPP.Web/.angular/cache
+NotesAPP.Web/.sass-cache/
+NotesAPP.Web/connect.lock
+NotesAPP.Web/coverage
+NotesAPP.Web/libpeerconnection.log
+NotesAPP.Web/testem.log
+NotesAPP.Web/typings
+
+# System files
+NotesAPP.Web/.DS_Store
+NotesAPP.Web/Thumbs.db
+NotesAPP.Web/.vscode/launch.json
