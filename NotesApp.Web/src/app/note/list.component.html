@@ -1,0 +1,32 @@
+<div class="row">
+    <div class="col-md-12 mt-2">
+        <div class="card">
+            <div class="card-body">
+                <a class="btn btn-primary" routerLink="add">Add</a>
+            </div>
+        </div>
+        <div class="card mt-2" *ngFor="let note of notes">
+            <div class="card-header text-white bg-success">{{note.noteType}}</div>
+            <div class="card-body">
+                <p>{{note.noteText}}</p>
+                <p *ngIf="note.noteType == 'Reminder'">
+                    <strong>Reminder Date & Time:</strong> {{note.reminderOrDueDate}}
+                </p>
+                <p *ngIf="note.noteType == 'Todo'">
+                    <strong>Due Date & Time:</strong> {{note.reminderOrDueDate}}
+                </p>
+                <p *ngIf="note.noteType == 'Todo'">
+                   <strong>Done?</strong>: {{note.isComplete ? 'Yes' : 'No'}}
+                </p>
+            </div>
+        </div>
+        <div class="card" *ngIf="notes.length == 0">
+            <div class="card-body">
+                <div class="alert alert-warning">
+                    No notes, reminders, todos or bookmarks.
+                    <a class="btn btn-link" routerLink="add">Add</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

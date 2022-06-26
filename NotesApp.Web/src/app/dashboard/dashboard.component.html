@@ -1,0 +1,153 @@
+<h2>{{title}}</h2>
+<hr />
+<hr />
+
+<div class="accordion mb-2" id="todayAccordion">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="todayHeadingAccordion">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#todayAccordionBody"
+        aria-expanded="true" aria-controls="todayAccordionBody">
+        <strong>Today</strong> &nbsp;[{{dashboardTodayStats.todos.length}} todo(s)] [{{dashboardTodayStats.reminders.length}} reminder(s)]
+      </button>
+    </h2>
+    <div id="todayAccordionBody" class="accordion-collapse collapse hide" aria-labelledby="headingOne"
+      data-bs-parent="#todayAccordion">
+      <div class="accordion-body">
+        <div class="row">
+          <div class="col-md-6">
+            <div *ngIf="dashboardTodayStats.todos.length == 0">No Todos for today</div>
+            <div *ngFor="let todoToday of dashboardTodayStats.todos">
+              <div class="card">
+                <div class="card-body">
+                  <p><strong>Task:</strong> {{todoToday.noteText}}</p>
+                  <p><strong>Date: </strong>{{todoToday.reminderOrDueDate}}</p>
+                  <p><strong>Done? </strong>{{todoToday.isComplete ? 'Yes' : 'No'}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div *ngIf="dashboardTodayStats.reminders.length == 0">No Reminders for today</div>
+            <div *ngFor="let reminderToday of dashboardTodayStats.reminders">
+              <div class="card">
+                <div class="card-body">
+                  <p><strong>Reminder:</strong> {{reminderToday.noteText}}</p>
+                  <p><strong>Date: </strong>{{reminderToday.reminderOrDueDate}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="accordion mb-2" id="nextSevenAccordion">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="nextSevenHeadingAccordion">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nextSevenAccordionBody"
+        aria-expanded="true" aria-controls="nextSevenAccordionBody">
+        <strong>Next Week</strong> &nbsp;[{{dashboardNextSevenStats.todos.length}} todo(s)] [{{dashboardNextSevenStats.reminders.length}} reminder(s)]
+      </button>
+    </h2>
+    <div id="nextSevenAccordionBody" class="accordion-collapse collapse hide" aria-labelledby="headingOne"
+      data-bs-parent="#nextSevenAccordion">
+      <div class="accordion-body">
+        <div class="row">
+          <div class="col-md-6">
+            <div *ngIf="dashboardNextSevenStats.todos.length == 0">No Todos in the next seven days</div>
+            <div *ngFor="let todoNextSeven of dashboardNextSevenStats.todos">
+              <div class="card">
+                <div class="card-body">
+                  <p><strong>Task:</strong> {{todoNextSeven.noteText}}</p>
+                  <p><strong>Date: </strong>{{todoNextSeven.reminderOrDueDate}}</p>
+                  <p><strong>Done? </strong>{{todoNextSeven.isComplete ? 'Yes' : 'No'}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div *ngIf="dashboardNextSevenStats.reminders.length == 0">No Reminders in the next seven days</div>
+            <div *ngFor="let reminderNextSeven of dashboardNextSevenStats.reminders">
+              <div class="card">
+                <div class="card-body">
+                  <p><strong>Reminder:</strong> {{reminderNextSeven.noteText}}</p>
+                  <p><strong>Date: </strong>{{reminderNextSeven.reminderOrDueDate}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="accordion mb-2" id="nextMonthAccordion">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="nextMonthHeadingAccordion">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nextMonthAccordionBody"
+        aria-expanded="true" aria-controls="todayAccordionBody">
+        <strong>Next Month</strong> &nbsp;[{{dashboardTodayStats.todos.length}} todo(s)] [{{dashboardTodayStats.reminders.length}} reminder(s)]
+      </button>
+    </h2>
+    <div id="nextMonthAccordionBody" class="accordion-collapse collapse hide" aria-labelledby="headingOne"
+      data-bs-parent="#nextMonthAccordion">
+      <div class="accordion-body">
+        <div class="row">
+          <div class="col-md-6">
+            <div *ngIf="dashboardNextMonthStats.todos.length == 0">No Todos for today</div>
+            <div *ngFor="let todoNextMonth of dashboardNextMonthStats.todos">
+              <div class="card">
+                <div class="card-body">
+                  <p><strong>Task:</strong> {{todoNextMonth.noteText}}</p>
+                  <p><strong>Date: </strong>{{todoNextMonth.reminderOrDueDate}}</p>
+                  <p><strong>Done? </strong>{{todoNextMonth.isComplete ? 'Yes' : 'No'}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div *ngIf="dashboardNextMonthStats.reminders.length == 0">No Reminders for today</div>
+            <div *ngFor="let reminderNextMonth of dashboardNextMonthStats.reminders">
+              <div class="card">
+                <div class="card-body">
+                  <p><strong>Reminder:</strong> {{reminderNextMonth.noteText}}</p>
+                  <p><strong>Date: </strong>{{reminderNextMonth.reminderOrDueDate}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr />
+
+<div class="row">
+  <div class="col-md-12">
+    <a routerLink="../notes" class="btn btn-link">
+      <strong>All Notes ({{allNotes.length}})</strong>
+    </a>
+  </div>
+  <div class="col-md-6" *ngFor="let note of allNotes">
+    <div class="card mt-3">
+      <div class="card-header text-white bg-success">{{note.noteType}}</div>
+      <div class="card-body">
+        <p>{{note.noteText}}</p>
+        <p *ngIf="note.noteType == 'Reminder'">
+          <strong>Reminder Date & Time:</strong> {{note.reminderOrDueDate}}
+        </p>
+        <p *ngIf="note.noteType == 'Todo'">
+          <strong>Due Date & Time:</strong> {{note.reminderOrDueDate}}
+        </p>
+        <p *ngIf="note.noteType == 'Todo'">
+          <strong>Done?</strong>: {{note.isComplete ? 'Yes' : 'No'}}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

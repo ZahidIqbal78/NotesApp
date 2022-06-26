@@ -1,0 +1,40 @@
+<div class="card">
+    <div class="card-header">Add New</div>
+    <div class="card-body">
+        <form [formGroup]="createNoteForm" (ngSubmit)="btnOnSubmit()">
+            <div class="form-group">
+                <label for="noteText">Note Text</label>
+                <input type="text" formControlName="noteText" class="form-control"
+                    [ngClass]="{ 'is-invalid': getFormFields['noteText'].errors }" />
+                <div *ngIf="getFormFields['noteText'].invalid" class="invalid-feedback">
+                    <div *ngIf="getFormFields['noteText'].errors?.['required']">Text is required</div>
+                    <div *ngIf="getFormFields['noteText'].errors?.['maxLength']">Maximum 100 characters</div>
+                </div>
+            </div>
+            <div class="form-group mt-3">
+                <!-- <select class="form-select" (change)="changeNoteType($event)" formControlName="noteType" -->
+                <select class="form-select" formControlName="noteType" required
+                    [ngClass]="{ 'is-invalid': getFormFields['noteType'].errors }">
+                    <option value="">- Select a Note Type -</option>
+                    <option *ngFor="let noteType of NoteTypes" [ngValue]="noteType">{{noteType}}</option>
+                </select>
+                <div *ngIf="getFormFields['noteType'].invalid" class="invalid-feedback">
+                    <div *ngIf="getFormFields['noteType'].errors?.['required']">Type is required</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="reminderOrDueDate">Date</label>
+                <input type="datetime-local" formControlName="reminderOrDueDate" class="form-control">
+            </div>
+            <div class="form-group mt-3">
+                <input class="form-check-input" type="checkbox" formControlName="isComplete">
+                <label class="form-check-label" for="isComplete">
+                    Done ?
+                </label>
+            </div>
+            <div class="form-group mt-3">
+                <button class="btn btn-primary">Add</button>
+            </div>
+        </form>
+    </div>
+</div>
